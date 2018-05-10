@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableHighlight } from 'react-native';
+import { View, StyleSheet, TouchableHighlight } from 'react-native';
 
 import PropTypes from 'prop-types';
 
@@ -10,32 +10,24 @@ const MenuItem = props => (
     style={[styles.container, props.style]}
     underlayColor={props.underlayColor}
   >
-    <Text
-      numberOfLines={1}
-      style={[
-        styles.title,
-        props.disabled && { color: props.disabledTextColor },
-        props.textStyle,
-      ]}
+    <View
+      style={styles.title}
     >
       {props.children}
-    </Text>
+    </View>
   </TouchableHighlight>
 );
 
 MenuItem.propTypes = {
   children: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  disabledTextColor: PropTypes.string,
   onPress: PropTypes.func,
   style: TouchableHighlight.propTypes.style,
-  textStyle: Text.propTypes.style,
   underlayColor: TouchableHighlight.propTypes.underlayColor,
 };
 
 MenuItem.defaultProps = {
   disabled: false,
-  disabledTextColor: 'rgb(189,189,189)',
   underlayColor: 'rgb(224,224,224)',
 };
 
