@@ -11,7 +11,7 @@ const MenuItem = props => (
     underlayColor={props.underlayColor}
   >
     <View
-      style={styles.title}
+      style={styles.item}
     >
       {props.children}
     </View>
@@ -19,7 +19,7 @@ const MenuItem = props => (
 );
 
 MenuItem.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.object,
   disabled: PropTypes.bool,
   onPress: PropTypes.func,
   style: TouchableHighlight.propTypes.style,
@@ -38,10 +38,7 @@ const styles = StyleSheet.create({
     maxWidth: 248,
     minWidth: 124,
   },
-
-  title: {
-    fontSize: 14,
-    fontWeight: '400',
+  item: {
     paddingHorizontal: 16,
   },
 });
