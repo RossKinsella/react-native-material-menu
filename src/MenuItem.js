@@ -19,7 +19,10 @@ const MenuItem = props => (
 );
 
 MenuItem.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
   disabled: PropTypes.bool,
   onPress: PropTypes.func,
   style: TouchableHighlight.propTypes.style,
